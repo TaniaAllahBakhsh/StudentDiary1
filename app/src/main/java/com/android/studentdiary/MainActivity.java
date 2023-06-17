@@ -1,6 +1,7 @@
 package com.android.studentdiary;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton floatAction;
     MYdatabase myDb;
     ArrayList<String> book_id,book_title,book_author,book_pages;
+    customAdapter CustomAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
           book_pages=new ArrayList<>();
           book_title=new ArrayList<>();
         storeDataInArray();
+        CustomAdapter=new customAdapter(MainActivity.this,book_id,book_author,book_pages,book_title);
+        recyclerView.setAdapter(CustomAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
     void storeDataInArray()
     {
