@@ -3,6 +3,7 @@ package com.android.studentdiary;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -19,6 +20,12 @@ public class UpdateActivity extends AppCompatActivity {
         author_input=findViewById(R.id.author2);
         pages_input=findViewById(R.id.pages2);
         button_input=findViewById(R.id.button2);
+        button_input.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
     }
 }
