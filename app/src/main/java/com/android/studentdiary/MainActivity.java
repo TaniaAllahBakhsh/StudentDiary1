@@ -1,5 +1,6 @@
 package com.android.studentdiary;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +21,16 @@ public class MainActivity extends AppCompatActivity {
     MYdatabase myDb;
     ArrayList<String> book_id,book_title,book_author,book_pages;
     customAdapter CustomAdapter;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==0)
+        {
+            recreate();
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
           book_pages=new ArrayList<>();
           book_title=new ArrayList<>();
         storeDataInArray();
-        CustomAdapter=new customAdapter(MainActivity.this,book_id,book_author,book_pages,book_title);
+        CustomAdapter=new customAdapter(MainActivity.this, this, book_id,book_author,book_pages,book_title);
         recyclerView.setAdapter(CustomAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }

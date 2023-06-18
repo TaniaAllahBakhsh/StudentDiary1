@@ -73,7 +73,7 @@ public class MYdatabase extends SQLiteOpenHelper {
         cv.put(COLUMN_NAME,title);
         cv.put(COLUMN_AUTHOR,author);
         cv.put(COLUMN_PAGES,pages);
-        long result=db.update(TABLE_NAME,cv,"_id=?",new String[] {row_id});
+        long result=db.update(TABLE_NAME,cv,"id=?",new String[] {row_id});
         if(result==-1)
         {
             Toast.makeText(context, "Failed to update", Toast.LENGTH_SHORT).show();

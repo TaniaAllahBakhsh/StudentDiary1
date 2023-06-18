@@ -1,5 +1,6 @@
 package com.android.studentdiary;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -15,11 +16,13 @@ import java.util.ArrayList;
 
 public class customAdapter extends RecyclerView.Adapter<customAdapter.MyViewHolder> {
    final private Context context;
+   Activity activity;
     private ArrayList book_id,book_author,book_title,book_page;
   //int position;
 
-    customAdapter(Context context, ArrayList book_id, ArrayList book_author,ArrayList book_page, ArrayList book_title)
+    customAdapter(Activity activity,Context context, ArrayList book_id, ArrayList book_author,ArrayList book_page, ArrayList book_title)
     {
+        this.activity=activity;
         this.context = context;
         this.book_id = book_id;
         this.book_author = book_author;
@@ -56,7 +59,7 @@ public class customAdapter extends RecyclerView.Adapter<customAdapter.MyViewHold
                 intent.putExtra("title", String.valueOf(book_title.get(click)));
                 intent.putExtra("author", String.valueOf(book_author.get(click)));
                 intent.putExtra("pages", String.valueOf(book_page.get(click)));
-                context.startActivity(intent);
+                activity.startActivityForResult(intent,1);
             }
         });
     }
