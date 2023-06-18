@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 public class MYdatabase extends SQLiteOpenHelper {
-    private  Context context;
+    private final Context context;
     private static final String DATABASE_NAME = "Student_data.db";
     private static final int DATABASE_VERSION = 1;
 
