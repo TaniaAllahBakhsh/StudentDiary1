@@ -12,18 +12,18 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class UpdateActivity extends AppCompatActivity {
-    EditText title_input,author_input,pages_input;
+    EditText name_input,sabaq_input,subqi_input;
     Button update_input,delete;
-    String id,title,author,pages;
+    String id,name,sabaq,sabqi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
-        title_input = findViewById(R.id.title2);
-        author_input = findViewById(R.id.author2);
-        pages_input = findViewById(R.id.pages2);
+        name_input = findViewById(R.id.name2);
+        sabaq_input = findViewById(R.id.sabaq2);
+        subqi_input = findViewById(R.id.sabqi2);
         update_input = findViewById(R.id.button2);
         delete=findViewById(R.id.button3);
         getAndSetIntentData();
@@ -31,12 +31,12 @@ public class UpdateActivity extends AppCompatActivity {
         ActionBar ab=getSupportActionBar();
 
         assert ab != null;
-        ab.setTitle(title);
+        ab.setTitle(name);
 
         update_input.setOnClickListener(view -> {
             //and only then we call this
             MYdatabase db=new MYdatabase(UpdateActivity.this);
-            db.updateData(id,title,author,pages);
+            db.updateData(id,name,sabaq,sabqi);
 
         });
 
@@ -55,13 +55,13 @@ public class UpdateActivity extends AppCompatActivity {
             {
                 //getting data from intent
                id=getIntent().getStringExtra("id");
-                title=getIntent().getStringExtra("title");
-                author=getIntent().getStringExtra("author");
-                pages=getIntent().getStringExtra("pages");
+                name=getIntent().getStringExtra("title");
+                sabaq=getIntent().getStringExtra("author");
+                sabqi=getIntent().getStringExtra("pages");
                //setting data
-                title_input.setText(title);
-                author_input.setText(author);
-                pages_input.setText(pages);
+                name_input.setText(name);
+                sabaq_input.setText(sabaq);
+                subqi_input.setText(sabqi);
             }
 
             else
@@ -74,8 +74,8 @@ public class UpdateActivity extends AppCompatActivity {
         void confirmDialog()
         {
             AlertDialog.Builder builder=new AlertDialog.Builder(this);
-            builder.setTitle("Delete " + title + " ?");
-            builder.setMessage(("Are you sure want to delete " + title + " ?"));
+            builder.setTitle("Delete " + name + " ?");
+            builder.setMessage(("Are you sure want to delete " + name + " ?"));
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {

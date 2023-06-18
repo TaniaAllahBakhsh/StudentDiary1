@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     FloatingActionButton floatAction;
     MYdatabase myDb;
-    ArrayList<String> book_id,book_title,book_author,book_pages;
+    ArrayList<String> student_id,student_name,sabak,subki;
     customAdapter CustomAdapter;
 
     @Override
@@ -45,12 +45,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
           myDb=new MYdatabase(MainActivity.this);
-          book_id=new ArrayList<>();
-          book_author=new ArrayList<>();
-          book_pages=new ArrayList<>();
-          book_title=new ArrayList<>();
+          student_id=new ArrayList<>();
+          student_name=new ArrayList<>();
+          sabak=new ArrayList<>();
+          subki=new ArrayList<>();
         storeDataInArray();
-        CustomAdapter=new customAdapter(MainActivity.this, this, book_id,book_author,book_pages,book_title);
+        CustomAdapter=new customAdapter(MainActivity.this, this, student_id,student_name,sabak,subki);
         recyclerView.setAdapter(CustomAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
@@ -65,10 +65,10 @@ public class MainActivity extends AppCompatActivity {
         {
             while(cursor.moveToNext())
             {
-                book_id.add(cursor.getString(0));
-                book_title.add(cursor.getString(1));
-                book_author.add(cursor.getString(2));
-                book_pages.add(cursor.getString(3));
+                student_id.add(cursor.getString(0));
+                student_name.add(cursor.getString(1));
+                sabak.add(cursor.getString(2));
+                subki.add(cursor.getString(3));
 
             }
         }
