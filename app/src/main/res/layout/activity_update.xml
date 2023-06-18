@@ -11,7 +11,7 @@
         android:layout_width="273dp"
         android:layout_height="49dp"
         android:ems="10"
-        android:hint="Book Title"
+        android:hint="@string/book"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/author2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,7 @@
         android:layout_height="49dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="Author Name"
+        android:hint="@string/author"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/pages2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,10 +55,20 @@
         android:layout_height="53dp"
         android:layout_marginTop="72dp"
         android:text="Update"
-        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pages2" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="200dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:text="delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
