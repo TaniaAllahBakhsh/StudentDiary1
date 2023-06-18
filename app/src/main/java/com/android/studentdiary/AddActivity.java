@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-//import com.android.studentdiary.MYdatabase;
 
 public class AddActivity extends AppCompatActivity {
     EditText title,author,pages;

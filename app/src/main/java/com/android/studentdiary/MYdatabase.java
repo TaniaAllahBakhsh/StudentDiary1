@@ -66,4 +66,24 @@ public class MYdatabase extends SQLiteOpenHelper {
         }
         return cursor;
     }
+    void updateData(String row_id,String title,String author,String pages)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues cv=new ContentValues();
+        cv.put(COLUMN_NAME,title);
+        cv.put(COLUMN_AUTHOR,author);
+        cv.put(COLUMN_PAGES,pages);
+        long result=db.update(TABLE_NAME,cv,"_id=?",new String[] {row_id});
+        if(result==-1)
+        {
+            Toast.makeText(context, "Failed to update", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Toast.makeText(context, "Successfully Added", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
 }
